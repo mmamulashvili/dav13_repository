@@ -1,7 +1,6 @@
 from django.db import models
 
 class Customer(models.Model):
-    # id ავტომატურად ემატება Django-ს მიერ (AutoField)
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
     email = models.EmailField(unique=True)
@@ -13,7 +12,7 @@ class Customer(models.Model):
         return f"{self.first_name} {self.last_name}"
 
 class Product(models.Model):
-    sku = models.CharField(max_length=50, unique=True)  # stock-keeping unit
+    sku = models.CharField(max_length=50, unique=True) 
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
